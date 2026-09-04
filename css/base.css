@@ -1,0 +1,168 @@
+/* =====================================================================
+   Schneiter's Golf — Design System
+   Family-run public golf in Utah since 1961.
+   Tokens first. Never use a raw hex value in a component — use a var().
+   ===================================================================== */
+
+/* ---- Typefaces -------------------------------------------------------
+   Two families, max. Fraunces (serif) for headings, Inter (sans) for body. */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Brand palette — the only source of colour in the whole site */
+  --pine:            #2D5744;
+  --terracotta:      #AC6440;
+  --terracotta-text: #8A4F32; /* darkened terracotta for legible link text */
+  --cream:           #FCF8EF;
+  --sand:            #F4EDDD;
+  --fog:             #6E6A60;
+  --ink:             #24211C;
+
+  /* Derived, non-colour tokens ---------------------------------------- */
+  --pine-tint:  rgba(45, 87, 68, 0.08);   /* faint pine wash for hover/rule */
+  --pine-line:  rgba(45, 87, 68, 0.16);   /* hairline dividers */
+  --terra-tint: rgba(172, 100, 64, 0.10);
+  --shadow-sm:  0 1px 2px rgba(36, 33, 28, 0.06);
+  --shadow-md:  0 10px 30px rgba(36, 33, 28, 0.10);
+  --shadow-lg:  0 24px 60px rgba(36, 33, 28, 0.16);
+
+  /* Type */
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing scale (rem) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Layout */
+  --radius:      4px;
+  --radius-lg:   10px;
+  --measure:     65ch;   /* max line length for body text */
+  --container:   1160px; /* page gutter container */
+  --header-h:    64px;
+}
+
+/* ---- Reset / base ---------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);          /* page is cream, never white */
+  color: var(--ink);                 /* body text is ink, never grey */
+  font-family: var(--font-sans);
+  font-size: 17px;                   /* body text 17px */
+  line-height: 1.6;                  /* line height 1.6 */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---- Headings -------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.12;
+  margin: 0 0 var(--space-4);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.25rem, 6vw, 3.75rem); font-weight: 600; }
+h2 { font-size: clamp(1.75rem, 4vw, 2.6rem); }
+h3 { font-size: clamp(1.35rem, 3vw, 1.7rem); }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; font-family: var(--font-sans); font-weight: 600; }
+
+/* ---- Body copy ------------------------------------------------------- */
+p { margin: 0 0 var(--space-4); max-width: var(--measure); }
+
+.lead {
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+small, .meta {
+  font-size: 0.85rem;
+  color: var(--fog);           /* fog reserved for muted meta, not body copy */
+  letter-spacing: 0.02em;
+}
+
+/* Eyebrow / kicker label */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--terracotta-text);
+  margin: 0 0 var(--space-3);
+}
+
+/* ---- Links ----------------------------------------------------------- */
+/* Terracotta is the only colour used for links. */
+a {
+  color: var(--terracotta-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--terra-tint);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a:hover { border-bottom-color: var(--terracotta); }
+a:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--pine-line);
+  margin: var(--space-7) 0;
+}
+
+/* ---- Layout helpers -------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.section { padding-block: var(--space-8); }
+
+.prose { max-width: var(--measure); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -3rem;
+  background: var(--terracotta);
+  color: var(--cream);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius);
+  border: 0;
+  z-index: 200;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: var(--space-3); }

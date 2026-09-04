@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search — Schneiter's Golf</title>
+  <meta name="description" content="Search Schneiter's Golf — rates, lessons, course info, outings, and policies.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="index.html" aria-label="Schneiter's Golf — home">
+        <span class="mark">Schneiter&rsquo;s</span>
+        <span class="sub">Utah Golf</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="bluff.html">The Bluff</a></li>
+          <li><a href="riverside.html">Riverside</a></li>
+          <li><a href="outings.html">Outings &amp; events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav-extra"><a href="search.html" aria-current="page">Search</a></li>
+        </ul>
+        <div class="header-cta"><a class="btn btn-primary" href="tee-times.html">Book a tee time</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow">Search</p>
+        <h1>Search the site</h1>
+        <p class="intro">Find rates, lessons, course info, outings and policies.</p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container content-narrow">
+        <form id="search-form" role="search" onsubmit="return false;">
+          <label class="label" for="q">Search Schneiter&rsquo;s Golf</label>
+          <input class="input" id="q" name="q" type="search" placeholder="Try &ldquo;rates&rdquo;, &ldquo;lessons&rdquo;, or &ldquo;banquet&rdquo;&hellip;" autocomplete="off" autofocus>
+        </form>
+        <p class="meta" id="search-status" style="margin-top: var(--space-4);"></p>
+        <ul id="search-results" class="search-results" aria-live="polite"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="wordmark" href="index.html" aria-label="Schneiter's Golf — home">
+          <span class="mark">Schneiter&rsquo;s</span>
+          <span class="sub">Utah Golf</span>
+        </a>
+        <p class="footer-tagline">Family-owned public golf along the Wasatch Front since 1961.</p>
+      </div>
+      <div class="course-col">
+        <h3>Schneiter&rsquo;s Bluff</h3>
+        <p class="place">West Point, Utah</p>
+        <address>300 N 3500 W<br>West Point, UT 84015<br><a href="tel:+18017730731">(801) 773-0731</a></address>
+        <a class="btn btn-on-dark btn-sm" href="tee-times.html#bluff">Book at the Bluff</a>
+      </div>
+      <div class="course-col">
+        <h3>Schneiter&rsquo;s Riverside</h3>
+        <p class="place">Riverdale, Utah</p>
+        <address>5460 South Weber Dr<br>Riverdale, UT 84405<br><a href="tel:+18013994636">(801) 399-4636</a></address>
+        <a class="btn btn-on-dark btn-sm" href="tee-times.html#riverside">Book at Riverside</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> Schneiter&rsquo;s Golf. Family-run since 1961.</p>
+      <p><a href="policies.html">Policies</a> &nbsp;·&nbsp; <a href="rates.html">Rates</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></p>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script>
+    (function () {
+      // ---- Client-side search index (static site, no backend) ----------
+      // Each page is matched on its NAME plus a few alias words people might type.
+      var INDEX = [
+        { title: "Home", url: "index.html",
+          desc: "Two family-run public golf courses in Utah since 1961 — book a tee time.",
+          aliases: ["welcome", "main", "start"] },
+        { title: "Tee times", url: "tee-times.html",
+          desc: "Book a tee time online or by phone at either course.",
+          aliases: ["book", "reserve", "booking"] },
+        { title: "The Bluff", url: "bluff.html",
+          desc: "Links-style course in West Point, with the short course and driving range.",
+          aliases: ["links", "west", "antelope"] },
+        { title: "Bluff holes", url: "bluff-holes.html",
+          desc: "Hole-by-hole yardages for the Bluff — Black, White, Yellow and Red tees.",
+          aliases: ["scorecard", "yardage", "holes"] },
+        { title: "Bluff leagues", url: "bluff-leagues.html",
+          desc: "Men's, Ladies, Seniors, Couples and Junior associations at the Bluff.",
+          aliases: ["association", "league", "results"] },
+        { title: "Schneiter's Riverside", url: "riverside.html",
+          desc: "Mature, tree-lined course in Riverdale along the Weber River — par 71.",
+          aliases: ["riverdale", "weber", "trees"] },
+        { title: "Riverside holes", url: "riverside-holes.html",
+          desc: "Hole-by-hole yardages, par and playing tips for Riverside.",
+          aliases: ["scorecard", "yardage", "holes"] },
+        { title: "Riverside leagues", url: "riverside-leagues.html",
+          desc: "Men's, Ladies and Tuesday Morning Ladies associations at Riverside.",
+          aliases: ["association", "league", "results"] },
+        { title: "Rates", url: "rates.html",
+          desc: "Green fees, punch passes, junior rates and season passes for both courses.",
+          aliases: ["prices", "cost", "fees"] },
+        { title: "Outings & events", url: "outings.html",
+          desc: "Tournaments and events for 8 to 120 players — banquet room and Pavilion.",
+          aliases: ["wedding", "banquet", "corporate"] },
+        { title: "Tournaments", url: "tournaments.html",
+          desc: "Tournament schedules, results and sign-ups — coming soon.",
+          aliases: ["tournament", "scramble", "championship"] },
+        { title: "Lessons", url: "lessons.html",
+          desc: "Four PGA instructors, their rates, and what each lesson includes.",
+          aliases: ["instructor", "coaching", "pro"] },
+        { title: "Junior golf", url: "junior-golf.html",
+          desc: "PGA junior camps and the Thursday junior league.",
+          aliases: ["junior", "kids", "camp"] },
+        { title: "Gallery", url: "gallery.html",
+          desc: "Photos from both courses.",
+          aliases: ["photos", "pictures", "images"] },
+        { title: "About", url: "about.html",
+          desc: "The Schneiter family and their two Utah courses since 1961.",
+          aliases: ["history", "family", "schneiter"] },
+        { title: "Privacy policy", url: "privacy.html",
+          desc: "How we handle the information you share with us.",
+          aliases: ["privacy", "data", "policy"] },
+        { title: "Contact", url: "contact.html",
+          desc: "Addresses and phone numbers for both courses, and an enquiry form.",
+          aliases: ["phone", "address", "email"] },
+        { title: "Course policies", url: "policies.html",
+          desc: "Cart rules, spectator policy, booking terms, and refunds.",
+          aliases: ["rules", "cart", "spectators"] }
+      ];
+
+      var input   = document.getElementById('q');
+      var results = document.getElementById('search-results');
+      var status  = document.getElementById('search-status');
+
+      function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+      // Ignore filler words so "the bluff" or "do the river" still match.
+      var STOP = { the:1, a:1, an:1, of:1, to:1, "for":1, and:1, or:1, "do":1, my:1,
+                   our:1, is:1, on:1, at:1, "in":1, we:1, you:1, your:1, i:1, me:1 };
+      function search(q){
+        q = (q || '').trim().toLowerCase();
+        results.innerHTML = '';
+        if (!q) { status.textContent = ''; return; }
+        var terms = q.split(/\s+/).filter(function(t){ return t && !STOP[t]; });
+        if (!terms.length) {
+          status.textContent = 'Type a word to search — try “rates”, “lessons”, or “the bluff”.';
+          return;
+        }
+        // Match the page NAME (and a few alias words) by prefix: "ho" -> Home, "prices" -> Rates.
+        var hits = INDEX.filter(function(p){
+          var words = p.title.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(Boolean).concat(p.aliases);
+          return terms.every(function(t){
+            return words.some(function(w){ return w.indexOf(t) === 0; });
+          });
+        });
+        status.textContent = hits.length
+          ? hits.length + (hits.length === 1 ? ' page found' : ' pages found')
+          : 'No pages match “' + q + '”. Try a different word, or call the pro shop.';
+        hits.forEach(function(p){
+          var li = document.createElement('li');
+          li.innerHTML = '<a href="' + p.url + '">' +
+            '<span class="r-title">' + esc(p.title) + '</span>' +
+            '<p class="r-desc">' + esc(p.desc) + '</p>' +
+            '<span class="r-url">' + esc(p.url) + '</span></a>';
+          results.appendChild(li);
+        });
+      }
+
+      // Support ?q= in the URL so results can be linked/shared
+      var params = new URLSearchParams(window.location.search);
+      var initial = params.get('q');
+      if (initial) { input.value = initial; }
+      input.addEventListener('input', function(){ search(input.value); });
+      search(input.value);
+    })();
+  </script>
+</body>
+</html>

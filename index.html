@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schneiter's Golf — Two courses. One family. Since 1961.</title>
+  <meta name="description" content="Family-owned public golf along Utah's Wasatch Front since 1961 — the links-style Bluff in West Point and tree-lined Riverside in Riverdale.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/home.css">
+
+  <!-- ============================================================
+       BOOKING LINKS — swap these placeholder hrefs for the real
+       booking-system URLs. They appear on the header CTA, the hero,
+       and each course card.
+         Bluff     → tee-times.html#bluff
+         Riverside → tee-times.html#riverside
+       ============================================================ -->
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================== HEADER ============================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="index.html" aria-label="Schneiter's Golf — home">
+        <span class="mark">Schneiter&rsquo;s</span>
+        <span class="sub">Utah Golf</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="bluff.html">The Bluff</a></li>
+          <li><a href="riverside.html">Riverside</a></li>
+          <li><a href="outings.html">Outings &amp; events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav-extra"><a href="search.html">Search</a></li>
+        </ul>
+        <div class="header-cta">
+          <!-- swap href -->
+          <a class="btn btn-primary" href="tee-times.html">Book a tee time</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== 1. HERO ===================== -->
+    <!-- swap the background-image url for a real hero photo -->
+    <section class="home-hero" style="background-image: url('img/hero.jpg');">
+      <div class="container">
+        <h1>Two courses. One family. Since 1961.</h1>
+        <!-- swap href -->
+        <a class="btn btn-primary btn-lg" href="tee-times.html">Book a tee time</a>
+      </div>
+    </section>
+
+    <!-- ===================== 2. TWO COURSES ===================== -->
+    <section class="courses container" id="courses">
+      <div class="courses-head">
+        <p class="eyebrow">Choose your round</p>
+        <h2>Two very different courses</h2>
+        <p>Both public, both family-run, ten minutes apart — one open and links-style, the other tight and tree-lined.</p>
+      </div>
+
+      <div class="course-grid">
+        <!-- The Bluff -->
+        <article class="course-card">
+          <img class="photo photo-dim" src="img/course-bluff.jpg" alt="Schneiter's Bluff — open links-style fairways and ponds from the air">
+          <div class="card-body">
+            <p class="place">West Point, Utah</p>
+            <h3 class="course-logo"><img src="img/logo-bluff.png" alt="Schneiter&rsquo;s Bluff"></h3>
+            <p class="desc">Open, links-style fairways and wide skies, with lake views out toward Antelope Island and the Great Salt Lake.</p>
+            <div class="fees">
+              <span class="from">
+                <strong>$19</strong>
+                <span class="label">9 holes, from</span>
+              </span>
+              <!-- swap href -->
+              <a class="btn btn-primary" href="tee-times.html#bluff">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Riverside -->
+        <article class="course-card">
+          <img class="photo" src="img/course-riverside.jpg" alt="Schneiter's Riverside — a green beside a still pond with mountains behind">
+          <div class="card-body">
+            <p class="place">Riverdale, Utah</p>
+            <h3 class="course-logo"><img src="img/logo-riverside.png" alt="Schneiter&rsquo;s Riverside"></h3>
+            <p class="desc">Mature, tree-lined and tight, winding along the Weber River — a shot-maker&rsquo;s course that rewards a straight ball.</p>
+            <div class="fees">
+              <span class="from">
+                <strong>$19</strong>
+                <span class="label">9 holes, from</span>
+              </span>
+              <!-- swap href -->
+              <a class="btn btn-primary" href="tee-times.html#riverside">Book</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== 3. OUTINGS & EVENTS ===================== -->
+    <section class="outings">
+      <div class="container outings-grid">
+        <img class="outings-photo" src="img/outings.jpg" alt="Golf carts lined up outside the clubhouse under a dramatic sky">
+        <div class="outings-copy">
+          <p class="eyebrow">Outings &amp; events</p>
+          <h2>Room for the whole party</h2>
+          <p>From weddings and corporate days to charity tournaments, we host groups of 8 to 120 players — with a banquet room, catering, and a team that has run Utah golf events for three generations.</p>
+          <!-- enquiry, not booking -->
+          <a class="btn btn-primary btn-lg" href="outings.html">Enquire about an event</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 4. GALLERY STRIP ===================== -->
+    <section class="gallery container">
+      <div class="gallery-head">
+        <h2>Around the courses</h2>
+        <a href="bluff.html">See more of the courses</a>
+      </div>
+      <div class="gallery-grid">
+        <img src="img/gallery-1.jpg" alt="A tree-lined fairway framed by a tall cottonwood">
+        <img src="img/gallery-2.jpg" alt="Flower planter beside a putting green, mountains beyond">
+        <img src="img/gallery-3.jpg" alt="Players on a green beside the pond">
+        <img src="img/gallery-4.jpg" alt="A fairway curving alongside a pond">
+      </div>
+    </section>
+
+    <!-- ===================== 5. QUIET NOTICE BAND ===================== -->
+    <aside class="notice-band">
+      <div class="container">
+        <p><strong>Don&rsquo;t see your preferred tee time?</strong> Call the pro shop and we&rsquo;ll check availability.</p>
+        <a class="btn btn-primary" href="contact.html">Contact the pro shop</a>
+      </div>
+    </aside>
+
+    <!-- ===================== 6. SPONSORS ===================== -->
+    <section class="sponsors">
+      <div class="container">
+        <h2>Our sponsors</h2>
+        <p class="sponsors-note">Proud to be supported by these local businesses.</p>
+        <div class="sponsor-strip">
+          <div class="sponsor"><a href="https://stangerinsurance.com" target="_blank" rel="noopener"><img src="img/sponsor-stanger.png" alt="Stanger Insurance, Clearfield"></a></div>
+          <div class="sponsor"><a href="https://edkenleyford.net" target="_blank" rel="noopener"><img src="img/sponsor-kenley.jpg" alt="Ed Kenley Ford"></a></div>
+          <div class="sponsor"><a href="https://buildrightremodels.com" target="_blank" rel="noopener"><img src="img/sponsor-buildright.jpeg" alt="Build Right Remodels — kitchen and bath, deck and pergola, basement finishes"></a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="wordmark" href="index.html" aria-label="Schneiter's Golf — home">
+          <span class="mark">Schneiter&rsquo;s</span>
+          <span class="sub">Utah Golf</span>
+        </a>
+        <p class="footer-tagline">Family-owned public golf along the Wasatch Front since 1961.</p>
+      </div>
+
+      <div class="course-col">
+        <h3>Schneiter&rsquo;s Bluff</h3>
+        <p class="place">West Point, Utah</p>
+        <address>
+          300 N 3500 W<br>
+          West Point, UT 84015<br>
+          <a href="tel:+18017730731">(801) 773-0731</a>
+        </address>
+        <a class="btn btn-on-dark btn-sm" href="tee-times.html#bluff">Book at the Bluff</a>
+      </div>
+
+      <div class="course-col">
+        <h3>Schneiter&rsquo;s Riverside</h3>
+        <p class="place">Riverdale, Utah</p>
+        <address>
+          5460 South Weber Dr<br>
+          Riverdale, UT 84405<br>
+          <a href="tel:+18013994636">(801) 399-4636</a>
+        </address>
+        <a class="btn btn-on-dark btn-sm" href="tee-times.html#riverside">Book at Riverside</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> Schneiter&rsquo;s Golf. Family-run since 1961.</p>
+      <p><a href="policies.html">Policies</a> &nbsp;·&nbsp; <a href="rates.html">Rates</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></p>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

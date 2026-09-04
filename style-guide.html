@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Guide — Schneiter's Golf</title>
+  <meta name="description" content="Design system, colors, typography, buttons, and form elements for Schneiter's Golf.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================== HEADER ============================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="index.html" aria-label="Schneiter's Golf — home">
+        <span class="mark">Schneiter&rsquo;s</span>
+        <span class="sub">Utah Golf</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="bluff.html">The Bluff</a></li>
+          <li><a href="riverside.html">Riverside</a></li>
+          <li><a href="outings.html">Outings &amp; events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav-extra"><a href="search.html">Search</a></li>
+        </ul>
+        <div class="header-cta">
+          <a class="btn btn-primary" href="#book">Book a tee time</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================== HERO =============================== -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Family-run since 1961</p>
+      <h1>Utah golf, the way it should feel.</h1>
+      <p>Two public courses along the Wasatch Front — the links-style Bluff in West Point and tree-lined Riverside in Riverdale.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="#book">Book a tee time</a>
+        <a class="btn btn-on-dark btn-lg" href="#courses">Explore the courses</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== MAIN =============================== -->
+  <main id="main" class="container section">
+
+    <header class="prose" style="margin-bottom: var(--space-8);">
+      <p class="eyebrow">Design System</p>
+      <h2>Style guide</h2>
+      <p class="lead">The building blocks behind every Schneiter&rsquo;s page. Everything below is driven by a single set of CSS custom properties — no raw color values live in components.</p>
+    </header>
+
+    <!-- COLORS -->
+    <section class="section" aria-labelledby="sg-colours" style="padding-top:0;">
+      <p class="section-label" id="sg-colours">Colors</p>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="chip" style="background: var(--pine)"></div>
+          <div class="info"><div class="name">Pine</div><div class="hex">#2D5744</div><div class="use">Header, footer, secondary outlines</div></div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: var(--terracotta)"></div>
+          <div class="info"><div class="name">Terracotta</div><div class="hex">#AC6440</div><div class="use">Primary buttons &amp; links only</div></div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: var(--terracotta-text)"></div>
+          <div class="info"><div class="name">Terracotta (text)</div><div class="hex">#8A4F32</div><div class="use">Legible link text</div></div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: var(--cream); border-bottom:1px solid var(--pine-line)"></div>
+          <div class="info"><div class="name">Cream</div><div class="hex">#FCF8EF</div><div class="use">Page background</div></div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: var(--sand)"></div>
+          <div class="info"><div class="name">Sand</div><div class="hex">#F4EDDD</div><div class="use">Cards &amp; alternating panels</div></div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: var(--fog)"></div>
+          <div class="info"><div class="name">Fog</div><div class="hex">#6E6A60</div><div class="use">Muted meta, borders, hints</div></div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: var(--ink)"></div>
+          <div class="info"><div class="name">Ink</div><div class="hex">#24211C</div><div class="use">All body text &amp; headings</div></div>
+        </div>
+      </div>
+      <p class="sg-note">Terracotta is reserved for primary buttons and links. Pine is used only for the header, footer, and secondary button outlines. Body copy is always ink — never gray.</p>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section class="section" aria-labelledby="sg-type">
+      <p class="section-label" id="sg-type">Typography</p>
+      <div class="sg-card">
+        <p class="meta">Fraunces (serif) — headings · Inter (sans) — body · 17px / 1.6</p>
+        <h1>Heading one</h1>
+        <h2>Heading two</h2>
+        <h3>Heading three</h3>
+        <h4>Heading four</h4>
+        <h5>Overline / label</h5>
+        <p class="lead">Lead paragraph. The name Schneiter has been part of Utah golf for three generations, and every round should feel like a visit rather than a transaction.</p>
+        <p>Body paragraph, capped at roughly 65 characters per line for comfortable reading. Weekly leagues, recreational play, group outings, and the Bluff short course — there is room here for every level of play.</p>
+        <p>An inline <a href="#book">terracotta link</a> shows how links sit inside running text without shouting for attention.</p>
+        <p class="meta">Meta text in fog — used for captions, dates, and secondary detail only.</p>
+      </div>
+    </section>
+
+    <!-- BUTTONS -->
+    <section class="section" aria-labelledby="sg-buttons">
+      <p class="section-label" id="sg-buttons">Buttons</p>
+      <div class="sg-card">
+        <div class="row" style="margin-bottom: var(--space-6);">
+          <a class="btn btn-primary" href="#book">Book a tee time</a>
+          <a class="btn btn-secondary" href="#">View the scorecard</a>
+          <a class="btn btn-primary" href="#" aria-disabled="true">Disabled</a>
+        </div>
+        <div class="row" style="margin-bottom: var(--space-6);">
+          <a class="btn btn-primary btn-sm" href="#">Small</a>
+          <a class="btn btn-primary" href="#">Default</a>
+          <a class="btn btn-primary btn-lg" href="#">Large</a>
+        </div>
+        <div class="row" style="background: var(--pine); padding: var(--space-5); border-radius: var(--radius-lg);">
+          <a class="btn btn-primary" href="#">On dark — primary</a>
+          <a class="btn btn-on-dark" href="#">On dark — ghost</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMS -->
+    <section class="section" aria-labelledby="sg-forms">
+      <p class="section-label" id="sg-forms">Form elements</p>
+      <div class="sg-card">
+        <form onsubmit="return false">
+          <div class="field">
+            <label class="label" for="f-name">Full name <span class="req">*</span></label>
+            <input class="input" id="f-name" type="text" placeholder="Jordan Schneiter" required>
+          </div>
+          <div class="field">
+            <label class="label" for="f-email">Email</label>
+            <input class="input" id="f-email" type="email" placeholder="you@example.com">
+            <p class="field-hint">We&rsquo;ll only use this to confirm your booking.</p>
+          </div>
+          <div class="field">
+            <label class="label" for="f-course">Course</label>
+            <select class="select" id="f-course">
+              <option>Schneiter&rsquo;s Bluff — West Point</option>
+              <option>Schneiter&rsquo;s Riverside — Riverdale</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="label" for="f-msg">Message</label>
+            <textarea class="textarea" id="f-msg" placeholder="Tell us about your group or event…"></textarea>
+          </div>
+          <fieldset style="border:0; padding:0; margin:0 0 var(--space-5);">
+            <legend class="label" style="padding:0;">Play type</legend>
+            <label class="choice"><input type="radio" name="play" checked><span>Recreational round</span></label>
+            <label class="choice"><input type="radio" name="play"><span>League play</span></label>
+            <label class="choice"><input type="radio" name="play"><span>Group outing or event</span></label>
+          </fieldset>
+          <label class="choice" style="margin-bottom: var(--space-6);">
+            <input type="checkbox" checked>
+            <span>Send me occasional news and course conditions.</span>
+          </label>
+          <button class="btn btn-primary btn-lg" type="submit">Submit request</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="wordmark" href="index.html" aria-label="Schneiter's Golf — home">
+          <span class="mark">Schneiter&rsquo;s</span>
+          <span class="sub">Utah Golf</span>
+        </a>
+        <p class="footer-tagline">Family-owned public golf along the Wasatch Front since 1961.</p>
+      </div>
+
+      <div class="course-col">
+        <h3>Schneiter&rsquo;s Bluff</h3>
+        <p class="place">West Point, Utah</p>
+        <address>
+          300 N 3500 W<br>
+          West Point, UT 84015<br>
+          <a href="tel:+18017730731">(801) 773-0731</a>
+        </address>
+        <a class="btn btn-on-dark btn-sm" href="#book">Book at the Bluff</a>
+      </div>
+
+      <div class="course-col">
+        <h3>Schneiter&rsquo;s Riverside</h3>
+        <p class="place">Riverdale, Utah</p>
+        <address>
+          5460 South Weber Dr<br>
+          Riverdale, UT 84405<br>
+          <a href="tel:+18013994636">(801) 399-4636</a>
+        </address>
+        <a class="btn btn-on-dark btn-sm" href="#book">Book at Riverside</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> Schneiter&rsquo;s Golf. Family-run since 1961.</p>
+      <p><a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Gift cards</a> &nbsp;·&nbsp; <a href="#">Pro shop</a></p>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

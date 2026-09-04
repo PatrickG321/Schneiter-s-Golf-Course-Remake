@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Tee Time — Schneiter's Golf</title>
+  <meta name="description" content="Book a tee time at Schneiter's Bluff (West Point) or Schneiter's Riverside (Riverdale), Utah — online or by calling the pro shop.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- ============================================================
+       BOOKING SYSTEM — replace with the real per-course tee-sheet links.
+       Current live site books through: https://trwidget.web.app/page/TeeTimes
+       If the Bluff and Riverside have SEPARATE booking pages, swap each
+       "Book online" href below for the correct one.
+       ============================================================ -->
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="index.html" aria-label="Schneiter's Golf — home">
+        <span class="mark">Schneiter&rsquo;s</span>
+        <span class="sub">Utah Golf</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="bluff.html">The Bluff</a></li>
+          <li><a href="riverside.html">Riverside</a></li>
+          <li><a href="outings.html">Outings &amp; events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav-extra"><a href="search.html">Search</a></li>
+        </ul>
+        <div class="header-cta"><a class="btn btn-primary" href="tee-times.html">Book a tee time</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow">Reserve your round</p>
+        <h1>Book a tee time</h1>
+        <p class="intro">Book online any time through our tee sheet, or call the pro shop and we&rsquo;ll get you out on the course.</p>
+      </div>
+    </section>
+
+    <section class="courses container" id="book">
+      <div class="course-grid">
+        <article class="course-card" id="bluff">
+          <img class="photo photo-dim" src="img/course-bluff.jpg" alt="Schneiter's Bluff — open links-style fairways and ponds from the air">
+          <div class="card-body">
+            <p class="place">West Point, Utah</p>
+            <h3>Schneiter&rsquo;s Bluff</h3>
+            <p class="desc">Open, links-style golf. Reserve online, or call the Bluff pro shop.</p>
+            <div class="fees">
+              <span class="from">
+                <strong><a href="tel:+18017730731">(801) 773-0731</a></strong>
+                <span class="label">Pro shop</span>
+              </span>
+              <!-- replace with the Bluff booking link if separate -->
+              <a class="btn btn-primary" href="https://trwidget.web.app/page/TeeTimes" target="_blank" rel="noopener">Book online</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card" id="riverside">
+          <img class="photo" src="img/course-riverside.jpg" alt="Schneiter's Riverside — a green beside a still pond with mountains behind">
+          <div class="card-body">
+            <p class="place">Riverdale, Utah</p>
+            <h3>Schneiter&rsquo;s Riverside</h3>
+            <p class="desc">Mature, tree-lined golf along the Weber River. Reserve online, or call the Riverside pro shop.</p>
+            <div class="fees">
+              <span class="from">
+                <strong><a href="tel:+18013994636">(801) 399-4636</a></strong>
+                <span class="label">Pro shop</span>
+              </span>
+              <!-- replace with the Riverside booking link if separate -->
+              <a class="btn btn-primary" href="https://trwidget.web.app/page/TeeTimes" target="_blank" rel="noopener">Book online</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="notice-band">
+      <div class="container">
+        <p><strong>Don&rsquo;t see your preferred tee time?</strong> Call the pro shop and we&rsquo;ll check availability.</p>
+        <a class="btn btn-primary" href="contact.html">Contact the pro shop</a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="wordmark" href="index.html" aria-label="Schneiter's Golf — home">
+          <span class="mark">Schneiter&rsquo;s</span>
+          <span class="sub">Utah Golf</span>
+        </a>
+        <p class="footer-tagline">Family-owned public golf along the Wasatch Front since 1961.</p>
+      </div>
+      <div class="course-col">
+        <h3>Schneiter&rsquo;s Bluff</h3>
+        <p class="place">West Point, Utah</p>
+        <address>300 N 3500 W<br>West Point, UT 84015<br><a href="tel:+18017730731">(801) 773-0731</a></address>
+        <a class="btn btn-on-dark btn-sm" href="tee-times.html#bluff">Book at the Bluff</a>
+      </div>
+      <div class="course-col">
+        <h3>Schneiter&rsquo;s Riverside</h3>
+        <p class="place">Riverdale, Utah</p>
+        <address>5460 South Weber Dr<br>Riverdale, UT 84405<br><a href="tel:+18013994636">(801) 399-4636</a></address>
+        <a class="btn btn-on-dark btn-sm" href="tee-times.html#riverside">Book at Riverside</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> Schneiter&rsquo;s Golf. Family-run since 1961.</p>
+      <p><a href="policies.html">Policies</a> &nbsp;·&nbsp; <a href="rates.html">Rates</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></p>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+/* =====================================================================
+   Schneiter's Golf — Interior pages
+   One layout, no sidebar. Builds on base.css + components.css.
+   ===================================================================== */
+
+/* ---- Page header band ---------------------------------------------- */
+.page-head {
+  background: var(--pine);
+  color: var(--cream);
+  padding-block: var(--space-8);
+}
+.page-head .container { max-width: var(--container); }
+.page-head .eyebrow { color: var(--sand); }
+.page-head h1 { color: var(--cream); margin-bottom: var(--space-3); max-width: 18ch; }
+.page-head .page-logo { margin: 0 0 var(--space-4); line-height: 0; }
+.page-head .page-logo img {
+  display: block;
+  width: auto; height: auto;
+  max-height: 104px; max-width: 100%;
+}
+.page-head .intro {
+  color: rgba(252, 248, 239, 0.9);
+  font-size: 1.2rem;
+  max-width: 58ch;
+  margin: 0;
+}
+
+/* Photo variant — a course image behind the pine text band */
+.page-head--photo {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--pine);
+  background-size: cover;
+  background-position: center;
+}
+.page-head--photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg,
+    rgba(28, 44, 36, 0.9) 0%,
+    rgba(28, 44, 36, 0.72) 45%,
+    rgba(28, 44, 36, 0.45) 100%);
+}
+@media (min-width: 720px) {
+  .page-head { padding-block: var(--space-9); }
+}
+
+/* ---- Generic content sections -------------------------------------- */
+.page-section { padding-block: var(--space-8); }
+.page-section + .page-section { padding-top: 0; }
+
+.section-alt { background: var(--sand); }
+.section-alt + .page-section { padding-top: var(--space-8); }
+
+.content-narrow { max-width: 70ch; }
+.content-narrow p,
+.content-narrow li { color: var(--ink); }
+.content-narrow h2 { margin-top: var(--space-7); }
+.content-narrow h2:first-child { margin-top: 0; }
+.content-narrow h3 { margin-top: var(--space-6); }
+.content-narrow ul { padding-left: 1.2rem; margin: 0 0 var(--space-4); }
+.content-narrow li { margin-bottom: var(--space-2); max-width: var(--measure); }
+
+/* Two-column split (copy + media). Collapses to one column on mobile. */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+.split img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+}
+@media (min-width: 860px) {
+  .split { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .split--media-first .media { order: -1; }
+}
+
+/* Fact strip — holes / par / yardage etc. */
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding: var(--space-5) 0;
+  margin: 0 0 var(--space-6);
+  border-top: 1px solid var(--pine-line);
+  border-bottom: 1px solid var(--pine-line);
+  list-style: none;
+}
+.facts li { margin: 0; }
+.facts .num {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+}
+.facts .lab {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fog);
+}
+
+/* ---- Rates tables (sand-striped, reflow on mobile — no h-scroll) --- */
+.rate-block { margin-bottom: var(--space-8); }
+.rate-block > .cap {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+.rate-block > .cap-note { color: var(--fog); font-size: 0.9rem; margin-bottom: var(--space-4); }
+
+.rate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  border: 1px solid var(--pine-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.rate-table thead th {
+  background: var(--pine);
+  color: var(--cream);
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.8rem 1rem;
+}
+.rate-table thead th + th { text-align: right; }
+.rate-table tbody th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0.8rem 1rem;
+}
+.rate-table tbody td {
+  text-align: right;
+  color: var(--ink);
+  padding: 0.8rem 1rem;
+  font-variant-numeric: tabular-nums;
+}
+.rate-table tbody tr:nth-child(even) { background: var(--sand); } /* sand stripe */
+
+@media (max-width: 639px) {
+  /* Reflow each row into a stacked card — never scrolls sideways */
+  .rate-table { border: 0; }
+  .rate-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .rate-table tbody tr,
+  .rate-table tbody th,
+  .rate-table tbody td { display: block; width: 100%; }
+  .rate-table tbody tr {
+    border: 1px solid var(--pine-line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: var(--space-4);
+    background: var(--cream);
+  }
+  .rate-table tbody tr:nth-child(even) { background: var(--cream); }
+  .rate-table tbody th {
+    background: var(--sand);            /* sand row header keeps the striped feel */
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--pine-line);
+  }
+  .rate-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-4);
+    text-align: right;
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--pine-line);
+  }
+  .rate-table tbody td:last-child { border-bottom: 0; }
+  .rate-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--fog);
+    text-align: left;
+    letter-spacing: 0.02em;
+  }
+}
+
+.rate-note {
+  font-size: 0.9rem;
+  color: var(--fog);
+  border-left: 3px solid var(--terracotta);
+  padding-left: var(--space-4);
+  max-width: var(--measure);
+  margin-top: var(--space-5);
+}
+
+/* ---- Contact ------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+}
+.contact-courses {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+.contact-card {
+  background: var(--sand);
+  border: 1px solid var(--pine-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+}
+.contact-card h3 { margin-bottom: var(--space-1); }
+.contact-card .place {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta-text);
+  margin-bottom: var(--space-4);
+}
+.contact-card address {
+  font-style: normal;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.contact-card address a { color: var(--terracotta-text); }
+.contact-card .hours {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--pine-line);
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+.form-card {
+  background: var(--sand);
+  border: 1px solid var(--pine-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 var(--space-5);
+}
+@media (min-width: 560px) {
+  .form-row { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 980px) {
+  .contact-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .contact-courses { grid-template-columns: 1fr; }
+}
+
+/* ---- Policies ------------------------------------------------------ */
+.policy-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-7);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--pine-line);
+}
+.policy-nav a {
+  border: 1px solid var(--pine-line);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+  color: var(--terracotta-text);
+}
+.policy-nav a:hover { border-color: var(--terracotta); }
+.policy {
+  padding-top: var(--space-7);
+  margin-top: var(--space-7);
+  border-top: 1px solid var(--pine-line);
+  scroll-margin-top: calc(var(--header-h) + var(--space-5));
+}
+.policy:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+.policy h2 { margin-bottom: var(--space-4); }
+
+/* ---- Holes tables (built on .rate-table) --------------------------- */
+.holes-table thead th { white-space: nowrap; }
+.holes-table thead th.notes-head { text-align: left; }
+.holes-table td.notes-cell { text-align: left; font-weight: 400; color: var(--ink); }
+.holes-table .nine-head th {
+  background: var(--pine-tint);
+  color: var(--ink);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+.holes-table .subtotal { background: var(--pine-tint); }
+.holes-table .subtotal th, .holes-table .subtotal td { font-weight: 700; }
+.holes-table .no-data th { color: var(--fog); font-weight: 500; }
+
+@media (max-width: 639px) {
+  .holes-table td:empty { display: none; }               /* no-data holes show just the number */
+  .holes-table td.notes-cell { display: block; text-align: left; }
+  .holes-table td.notes-cell:empty { display: none; }
+  .holes-table td.notes-cell::before { display: block; margin-bottom: 2px; }
+}
+
+/* ---- Photo gallery page -------------------------------------------- */
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;   /* leftover photos in the last row centre */
+  gap: var(--space-4);
+}
+.photo-gallery figure { margin: 0; flex: 0 0 300px; max-width: 100%; }  /* all photos the same size */
+.photo-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--sand);
+  box-shadow: var(--shadow-sm);
+}
+.photo-gallery figcaption { font-size: 0.85rem; color: var(--fog); margin-top: var(--space-2); }
+
+/* ---- Responsive video embed --------------------------------------- */
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--sand);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---- Site search --------------------------------------------------- */
+.search-results { list-style: none; margin: var(--space-5) 0 0; padding: 0; }
+.search-results li { border-top: 1px solid var(--pine-line); }
+.search-results li:last-child { border-bottom: 1px solid var(--pine-line); }
+.search-results a { display: block; padding: var(--space-4) 0; border: 0; }
+.search-results .r-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--terracotta-text);
+  margin-bottom: var(--space-1);
+}
+.search-results a:hover .r-title { border-bottom: 1px solid var(--terracotta); display: inline-block; }
+.search-results .r-desc { color: var(--ink); font-size: 0.95rem; margin: 0 0 var(--space-1); max-width: var(--measure); }
+.search-results .r-url { color: var(--fog); font-size: 0.78rem; letter-spacing: 0.02em; }
