@@ -263,7 +263,7 @@
   box-shadow: var(--shadow-md);
 }
 .site-menu .menu-list {
-  list-style: none; margin: 0;
+  list-style: none; margin: 0 auto;   /* keep the container centered on screen */
   display: flex; flex-direction: column; gap: var(--space-1);
 }
 .site-menu .menu-list a {
