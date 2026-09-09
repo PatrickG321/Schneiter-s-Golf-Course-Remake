@@ -67,6 +67,15 @@
           addItem('junior-golf.html', 'Junior golf');
           addItem('gallery.html', 'Gallery');
           addItem('about.html', 'About');
+          // Gift cards live in the online store (opens in a new tab).
+          var giftLi = document.createElement('li');
+          var giftA = document.createElement('a');
+          giftA.href = 'https://utahgolfpass.com/pages/email-friendly-e-gift-cards';
+          giftA.target = '_blank';
+          giftA.rel = 'noopener';
+          giftA.textContent = 'Gift cards';
+          giftLi.appendChild(giftA);
+          ul.appendChild(giftLi);
         }
       }
     });
