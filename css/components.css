@@ -275,6 +275,7 @@
   padding: var(--space-3) 0;
   border: 0;
   border-bottom: 1px solid rgba(252, 248, 239, 0.10);
+  text-align: center;
 }
 .site-menu .menu-list a:hover { color: #fff; }
 
@@ -290,7 +291,7 @@
   padding: var(--space-3) 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .site-menu .menu-group summary::-webkit-details-marker { display: none; }
 .site-menu .menu-group summary::after {
@@ -308,8 +309,9 @@
   display: block;
   color: rgba(252, 248, 239, 0.82);
   font-size: 0.95rem;
-  padding: var(--space-2) 0 var(--space-2) var(--space-5);
+  padding: var(--space-2) 0;
   border: 0;
+  text-align: center;
 }
 .site-menu .submenu a:hover { color: #fff; }
 .site-menu .submenu a[aria-current='page'] { color: #fff; }
@@ -331,7 +333,7 @@
   background: var(--terracotta);
   vertical-align: middle;
 }
-.site-menu .menu-book { margin-top: var(--space-3); border-bottom: 0; }
+.site-menu .menu-book { margin-top: var(--space-3); border-bottom: 0; text-align: center; }
 .site-menu .menu-book a {
   border: 0;
   display: inline-block;
