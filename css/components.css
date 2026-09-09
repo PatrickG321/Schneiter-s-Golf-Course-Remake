@@ -527,7 +527,7 @@
 .sponsor-strip {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: var(--space-5);
   justify-content: center;
   align-items: stretch;
 }
@@ -536,14 +536,15 @@
   border: 1px solid var(--pine-line);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  padding: var(--space-4) var(--space-5);
+  padding: var(--space-6) var(--space-6);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 180px;
+  flex: 1 1 260px;      /* grow to share the row and fill the space */
+  max-width: 380px;
 }
 .sponsor a { border: 0; display: block; line-height: 0; }
-.sponsor img { height: 78px; width: auto; display: block; } /* normalized height (30% larger) */
+.sponsor img { height: 120px; width: auto; max-width: 100%; object-fit: contain; display: block; }
 
 /* =====================================================================
    Style-guide scaffolding (only used on the style guide page)
