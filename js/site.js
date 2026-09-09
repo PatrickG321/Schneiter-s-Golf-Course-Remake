@@ -157,4 +157,53 @@
 
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
+
+  // ---- Lightbox: click a photo to view it full size (gallery + course photos)
+  (function () {
+    var imgs = Array.prototype.slice.call(document.querySelectorAll('.photo-gallery img, .media img'));
+    if (!imgs.length) return;
+    var multi = imgs.length > 1;
+
+    var box = document.createElement('div');
+    box.className = 'lightbox';
+    box.hidden = true;
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-label', 'Photo viewer');
+    box.innerHTML =
+      '<button class="lightbox-btn lightbox-close" aria-label="Close">&times;</button>' +
+      (multi ? '<button class="lightbox-btn lightbox-prev" aria-label="Previous photo">&#8249;</button>' : '') +
+      '<img alt="">' +
+      (multi ? '<button class="lightbox-btn lightbox-next" aria-label="Next photo">&#8250;</button>' : '') +
+      (multi ? '<p class="lightbox-counter"></p>' : '');
+    document.body.appendChild(box);
+
+    var big = box.querySelector('img');
+    var counter = box.querySelector('.lightbox-counter');
+    var i = 0;
+
+    function show(n) {
+      i = (n + imgs.length) % imgs.length;
+      big.src = imgs[i].currentSrc || imgs[i].src;
+      big.alt = imgs[i].alt || '';
+      if (counter) counter.textContent = (i + 1) + ' / ' + imgs.length;
+    }
+    function open(n) { show(n); box.hidden = false; document.body.style.overflow = 'hidden'; }
+    function close() { box.hidden = true; document.body.style.overflow = ''; }
+
+    imgs.forEach(function (im, n) {
+      im.style.cursor = 'zoom-in';
+      im.addEventListener('click', function () { open(n); });
+    });
+    var nx = box.querySelector('.lightbox-next'), pv = box.querySelector('.lightbox-prev');
+    if (nx) nx.addEventListener('click', function (e) { e.stopPropagation(); show(i + 1); });
+    if (pv) pv.addEventListener('click', function (e) { e.stopPropagation(); show(i - 1); });
+    box.querySelector('.lightbox-close').addEventListener('click', close);
+    box.addEventListener('click', function (e) { if (e.target === box) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (box.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (multi && e.key === 'ArrowRight') show(i + 1);
+      else if (multi && e.key === 'ArrowLeft') show(i - 1);
+    });
+  })();
 })();
