@@ -224,6 +224,7 @@
 .quick-btn svg { width: 20px; height: 20px; }
 
 .nav-list li.is-hidden-inline { display: none; }
+.nav-list li.nav-more { display: none; }   /* Rates/Lessons: shown only on wide bars */
 
 /* Nav toggle (hamburger) — persistent on every width, sits at the far right */
 .nav-toggle {
@@ -358,12 +359,12 @@
     flex: 1 1 auto;
   }
   .nav-list {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: var(--space-4);
+    justify-content: flex-start;
+    gap: var(--space-5);
   }
   .nav-list .nav-extra { display: none; }
   .nav-list a {
@@ -393,9 +394,13 @@
     height: 2px;
     background: rgba(252, 248, 239, 0.4);
   }
-  .header-cta { flex: 0 0 auto; }
+  .header-cta { flex: 0 0 auto; margin-left: auto; }
   .header-cta .btn { width: auto; }
 }
+
+/* Extra tabs appear only when the bar has room, and drop away as it narrows. */
+@media (min-width: 1060px) { .nav-list li.nav-more-a { display: block; } }
+@media (min-width: 1220px) { .nav-list li.nav-more-b { display: block; } }
 
 /* =====================================================================
    FOOTER — pine, two balanced course columns
