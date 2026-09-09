@@ -94,5 +94,53 @@
   </footer>
 
   <script src="js/site.js"></script>
+  <script>
+    // Gallery lightbox: click a photo to view it full size, with prev/next.
+    (function () {
+      var imgs = Array.prototype.slice.call(document.querySelectorAll('.photo-gallery img'));
+      if (!imgs.length) return;
+
+      var box = document.createElement('div');
+      box.className = 'lightbox';
+      box.hidden = true;
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-label', 'Photo viewer');
+      box.innerHTML =
+        '<button class="lightbox-btn lightbox-close" aria-label="Close">&times;</button>' +
+        '<button class="lightbox-btn lightbox-prev" aria-label="Previous photo">&#8249;</button>' +
+        '<img alt="">' +
+        '<button class="lightbox-btn lightbox-next" aria-label="Next photo">&#8250;</button>' +
+        '<p class="lightbox-counter"></p>';
+      document.body.appendChild(box);
+
+      var big = box.querySelector('img');
+      var counter = box.querySelector('.lightbox-counter');
+      var i = 0;
+
+      function show(n) {
+        i = (n + imgs.length) % imgs.length;
+        big.src = imgs[i].currentSrc || imgs[i].src;
+        big.alt = imgs[i].alt || '';
+        counter.textContent = (i + 1) + ' / ' + imgs.length;
+      }
+      function open(n) { show(n); box.hidden = false; document.body.style.overflow = 'hidden'; }
+      function close() { box.hidden = true; document.body.style.overflow = ''; }
+
+      imgs.forEach(function (im, n) {
+        im.addEventListener('click', function () { open(n); });
+      });
+      box.querySelector('.lightbox-next').addEventListener('click', function (e) { e.stopPropagation(); show(i + 1); });
+      box.querySelector('.lightbox-prev').addEventListener('click', function (e) { e.stopPropagation(); show(i - 1); });
+      box.querySelector('.lightbox-close').addEventListener('click', close);
+      // Click the dark backdrop (not the image) to close.
+      box.addEventListener('click', function (e) { if (e.target === box) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (box.hidden) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowRight') show(i + 1);
+        else if (e.key === 'ArrowLeft') show(i - 1);
+      });
+    })();
+  </script>
 </body>
 </html>
