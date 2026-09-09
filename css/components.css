@@ -342,12 +342,19 @@
 }
 .site-menu .menu-book a:hover { background: var(--terracotta-text); color: var(--cream); }
 
-/* Desktop: essential links inline on the bar (Search + extras stay in the dropdown) */
-@media (min-width: 900px) {
+/* Narrow laptops: make room for the inline tabs by tucking the bar's
+   Book button (still in the hero + menu) and the "Utah Golf" subtitle. */
+@media (min-width: 760px) and (max-width: 899px) {
+  .header-cta { display: none; }
+  .wordmark .sub { display: none; }
+}
+
+/* Desktop/laptop: essential links inline on the bar (Search + extras stay in the dropdown) */
+@media (min-width: 760px) {
   .primary-nav {
     display: flex;
     align-items: center;
-    gap: var(--space-5);
+    gap: var(--space-4);
     flex: 1 1 auto;
   }
   .nav-list {
@@ -356,7 +363,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: var(--space-5);
+    gap: var(--space-4);
   }
   .nav-list .nav-extra { display: none; }
   .nav-list a {
